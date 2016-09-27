@@ -1,0 +1,15 @@
+{
+  "lang": "en",
+  "name": "first PWA",
+  "short_name": "first PWA",
+  "icons": [{
+        "src": "https://github.com/apple-touch-icon-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }],
+  "scope": "/",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "aliceblue",
+  "background_color": "#3E4EB8"
+}
