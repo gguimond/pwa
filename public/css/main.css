@@ -1,0 +1,52 @@
+#two-panel .mdl-cell{
+    align-items: center;
+    justify-content: center;
+}
+
+.demo-card{
+   width: auto; 
+}
+
+.demo-card-image.mdl-card {
+  width: auto;
+  height: auto;
+  background: url('http://orig06.deviantart.net/5ccb/f/2016/211/f/f/mr_robot_icon_by_gonkasth-dac0sk9.png') center / cover;
+}
+
+.demo-card-image > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.demo-card-image__filename {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.demo-card-event.mdl-card {
+    width: auto;
+    height: auto;
+    background: #3E4EB8;
+}
+
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: #fff;
+}
+
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 0;
+}
