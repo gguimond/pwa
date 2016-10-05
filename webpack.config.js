@@ -7,12 +7,13 @@ module.exports = {
     devtool:'eval',
     entry: {
         app: ['webpack-dev-server/client?http://localhost:8080','webpack/hot/dev-server','./public/js/index.js'],
+        'sw-toolbox': ['./public/js/sw-toolbox.js'],
         vendors: ['./public/js/vendors.js']
     },
     output: {
         path: 'public/',
         filename: 'js/[name].js',
-        publicPath: 'https://localhost:8080/'
+        publicPath: 'http://localhost:8080/'
     },
     module: {
         loaders: [
