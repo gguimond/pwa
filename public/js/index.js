@@ -21,3 +21,17 @@ window.addEventListener('beforeinstallprompt', function(e) {
     }
   });
 });
+
+window.addEventListener('DOMContentLoaded', function(){
+    var xhr = require("xhr");
+    xhr({
+        uri: "/json/data.json",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }, function (err, resp, body) {
+            if(!err){
+                console.log(body);
+            }
+    })
+});

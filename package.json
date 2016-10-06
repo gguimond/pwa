@@ -19,7 +19,8 @@
   "homepage": "https://github.com/gguimond/pwa#readme",
   "dependencies": {
     "material-design-lite": "^1.2.1",
-    "sw-toolbox": "^3.3.0"
+    "sw-toolbox": "^3.3.0",
+    "xhr": "^2.2.2"
   },
   "devDependencies": {
     "css-loader": "^0.25.0",
