@@ -7,7 +7,6 @@ module.exports = {
     devtool:'eval',
     entry: {
         app: ['webpack-dev-server/client?http://localhost:8080','webpack/hot/dev-server','./public/js/index.js'],
-        'sw-toolbox': ['./public/js/sw-toolbox.js'],
         vendors: ['./public/js/vendors.js']
     },
     output: {
@@ -19,7 +18,8 @@ module.exports = {
         loaders: [
             {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
             {test: /\.(jpg|png|svg|ico|gif).*$/, loader: "file-loader?name=img/[name].[ext]"},
-            {test: /\.(woff|woff2|eot|ttf).*$/, loader: "file-loader?name=fonts/[name].[ext]"}
+            {test: /\.(woff|woff2|eot|ttf).*$/, loader: "file-loader?name=fonts/[name].[ext]"},
+            {test: /sw-toolbox.*$/, loader: "file-loader?name=js/[name].[ext]"}
         ]
     },
     plugins: [
