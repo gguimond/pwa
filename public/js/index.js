@@ -1,9 +1,14 @@
 require('../css/main.css');
 import React from 'react';
 import { render } from 'react-dom';
-import Card from './components/card';
+import { createStore } from 'redux';
+import reducer from './reducer';
+import { Card } from './containers';
+import { Provider } from 'react-redux';
 
 navigator.serviceWorker.register('../sw.js');
+
+const store = createStore(reducer);
 
 window.addEventListener('beforeinstallprompt', function(e) {
   console.log('beforeinstallprompt Event fired');
@@ -37,8 +42,10 @@ window.addEventListener('DOMContentLoaded', function(){
             if(!err){
 
                 render(
-                  <Card card={body} />,
-                  document.getElementById('card-container')
+                    <Provider store={store}>
+                        <Card/>
+                    </Provider>,
+                    document.getElementById('card-container')
                 );
             }
     })
