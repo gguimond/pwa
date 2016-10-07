@@ -19,7 +19,8 @@ module.exports = {
             {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
             {test: /\.(jpg|png|svg|ico|gif).*$/, loader: "file-loader?name=img/[name].[ext]"},
             {test: /\.(woff|woff2|eot|ttf).*$/, loader: "file-loader?name=fonts/[name].[ext]"},
-            {test: /sw-toolbox.*$/, loader: "file-loader?name=js/[name].[ext]"}
+            {test: /sw-toolbox.*$/, loader: "file-loader?name=js/[name].[ext]"},
+            {test: /\.js$/, exclude: /node_modules/, loader: 'babel', query: { presets: [ 'es2015', 'react' ] }}
         ]
     },
     plugins: [

@@ -1,4 +1,7 @@
 require('../css/main.css');
+import React from 'react';
+import { render } from 'react-dom';
+import Card from './components/card';
 
 navigator.serviceWorker.register('../sw.js');
 
@@ -26,12 +29,17 @@ window.addEventListener('DOMContentLoaded', function(){
     var xhr = require("xhr");
     xhr({
         uri: "/json/data.json",
+        json: true,
         headers: {
             "Content-Type": "application/json"
         }
     }, function (err, resp, body) {
             if(!err){
-                console.log(body);
+
+                render(
+                  <Card card={body} />,
+                  document.getElementById('card-container')
+                );
             }
     })
 });
