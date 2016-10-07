@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import card from './components/card';
-import { updateCard } from './actions';
+import card from '../components/card';
+import { updateCard } from '../actions/card';
 
 export const Card = connect(
     function mapStateToProps(state) {

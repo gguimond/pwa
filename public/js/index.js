@@ -2,8 +2,8 @@ require('../css/main.css');
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-import reducer from './reducer';
-import { Card } from './containers';
+import reducer from './reducers/card';
+import { Card } from './containers/card';
 import { Provider } from 'react-redux';
 
 navigator.serviceWorker.register('../sw.js');
