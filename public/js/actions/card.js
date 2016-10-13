@@ -7,3 +7,20 @@ export function updateCard(card) {
     }
   };
 }
+
+export function updateCardFromServer(card) {
+  return function (dispatch) {
+    var xhr = require("xhr");
+    xhr({
+        uri: "/json/data.json",
+        json: true,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }, function (err, resp, body) {
+        if(!err){
+            dispatch(updateCard(body))
+        }
+    })
+  };
+}

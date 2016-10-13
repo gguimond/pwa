@@ -20,7 +20,7 @@ const Card = React.createClass({
                 <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick={() => this.props.updateCard({title : 'default title', content : 'default content'})}>
                   Update to default
                 </a>
-                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick={() => this.props.updateCard({title : 'default title', content : 'default content'})}>
+                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick={() => this.props.updateCardFromServer()}>
                   Update
                 </a>
               </div>

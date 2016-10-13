@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import card from '../components/card';
 import { updateCard } from '../actions/card';
+import { updateCardFromServer } from '../actions/card';
 
 export const Card = connect(
     function mapStateToProps(state) {
@@ -8,7 +9,8 @@ export const Card = connect(
     },
     function mapDispatchToProps(dispatch) {
         return {
-            updateCard: (card) => dispatch(updateCard(card))
+            updateCard: (card) => dispatch(updateCard(card)),
+            updateCardFromServer: (card) => dispatch(updateCardFromServer())
         };
     }
 )(card);
