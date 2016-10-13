@@ -5,7 +5,6 @@ const Card = React.createClass({
         componentHandler.upgradeElement(this.refs.myCard);
     },
     componentDidUpdate() {
-        console.log("update");
         componentHandler.upgradeElement(this.refs.myCard);
     },
     render() {
@@ -18,7 +17,10 @@ const Card = React.createClass({
                 {this.props.card.content}
               </div>
               <div className="mdl-card__actions mdl-card--border">
-                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick={this.props.updateCard}>
+                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick={() => this.props.updateCard({title : 'default title', content : 'default content'})}>
+                  Update to default
+                </a>
+                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick={() => this.props.updateCard({title : 'default title', content : 'default content'})}>
                   Update
                 </a>
               </div>

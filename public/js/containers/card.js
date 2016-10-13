@@ -8,7 +8,7 @@ export const Card = connect(
     },
     function mapDispatchToProps(dispatch) {
         return {
-            updateCard: () => dispatch(updateCard())
+            updateCard: (card) => dispatch(updateCard(card))
         };
     }
 )(card);
