@@ -1,9 +1,9 @@
-export function updateCard() {
+export function updateCard(card) {
   return {
     type: 'UPDATE_CARD',
     payload: {
-        title : 'my Title updated', 
-        content : 'my content updated'
+        title : card.title, 
+        content : card.content
     }
   };
 }
