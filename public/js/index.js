@@ -33,6 +33,7 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 
 window.addEventListener('DOMContentLoaded', function(){
+    window.setTimeout(updateTab, 500);
     render(
         <Provider store={store}>
             <Card/>
@@ -53,3 +54,21 @@ window.addEventListener('DOMContentLoaded', function(){
             }
     })
 });
+
+let updateTab = function(){
+    switch(location.hash){
+        case '#one-panel':
+            document.querySelectorAll(".mdl-tabs__tab-bar a")[0].click();
+            break;
+        case '#two-panel':
+            document.querySelectorAll(".mdl-tabs__tab-bar a")[1].click();
+            break;
+        case '#three-panel':
+            document.querySelectorAll(".mdl-tabs__tab-bar a")[2].click();
+            break;
+        default:
+            break;
+    }
+}
+
+window.onhashchange = updateTab;
