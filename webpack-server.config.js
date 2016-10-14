@@ -4,21 +4,22 @@ var webpack = require('webpack');
 
 module.exports = {
     cache:true,
+    devtool:'eval',
     entry: {
-        app: ['./public/js/index.js'],
+        app: ['webpack-dev-server/client?http://localhost:8080','webpack/hot/dev-server','./public/js/index.js'],
         vendors: ['./public/js/vendors.js']
     },
     output: {
-        path: 'dist/',
+        path: 'public/',
         filename: 'js/[name].js',
-        publicPath: '/'
+        publicPath: 'http://localhost:8080/'
     },
     module: {
         loaders: [
             {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
             {test: /\.(jpg|png|svg|ico|gif).*$/, loader: "file-loader?name=img/[name].[ext]"},
             {test: /\.(woff|woff2|eot|ttf).*$/, loader: "file-loader?name=fonts/[name].[ext]"},
-            {test: /sw-toolbox.*$/, loader: "file-loader?name=js/[name].[ext]"},
+            {test: /sw-toolbox.js$/, loader: "file-loader?name=js/[name].[ext]"},
             {test: /sw.js$/, loader: "file-loader?name=[name].[ext]"},
             {test: /\.js$/, exclude: /node_modules/, loader: 'babel', query: { presets: [ 'es2015', 'react' ] }},
             {test: /manifest.json$/, loader: "file-loader?name=[name].[ext]"}
@@ -26,8 +27,9 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('css/[name].css'),                       
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            filename: '../dist/index.html',
+            filename: '../index.html',
             template: 'src/template/index.html',
             chunks: ['app', 'vendors']
         }),
@@ -41,10 +43,5 @@ module.exports = {
             chunks: ['app'],
             minChunks: Infinity
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        })
     ]
 }
