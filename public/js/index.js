@@ -6,7 +6,8 @@ import thunk from 'redux-thunk';
 import reducer from './reducers/card';
 import { Card } from './containers/card';
 import { Provider } from 'react-redux';
-import { updateCard } from './actions/card'
+import { updateCard } from './actions/card';
+import { Router, Route, Link, hashHistory } from 'react-router';
 
 navigator.serviceWorker.register('../sw.js');
 
@@ -32,31 +33,34 @@ window.addEventListener('beforeinstallprompt', function(e) {
     });
 });
 
+//change hash when selecting tab
+document.querySelectorAll(".mdl-tabs__tab-bar a")[0].addEventListener('click', function(){
+    location.hash = 'one-panel';
+});
+
+document.querySelectorAll(".mdl-tabs__tab-bar a")[1].addEventListener('click', function(){
+    location.hash = 'two-panel';
+});
+
+document.querySelectorAll(".mdl-tabs__tab-bar a")[2].addEventListener('click', function(){
+    location.hash = 'three-panel';
+});
+
 window.addEventListener('DOMContentLoaded', function(){
     window.setTimeout(updateTab, 500);
     render(
-        <Provider store={store}>
+      <Router history={hashHistory}>
+        <Route path="/three-panel" component={() => <Provider store={store}>
             <Card/>
-        </Provider>,
-        document.getElementById('card-container')
-    );
-
-    var xhr = require("xhr");
-    xhr({
-        uri: "/json/data.json",
-        json: true,
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }, function (err, resp, body) {
-            if(!err){
-                store.dispatch(updateCard(body))
-            }
-    })
+        </Provider>}>
+        </Route>
+      </Router>
+    , document.getElementById('card-container'));
 });
 
 let updateTab = function(){
-    switch(location.hash){
+    let locationHash = location.hash.split('?')[0];
+    switch(locationHash){
         case '#one-panel':
             document.querySelectorAll(".mdl-tabs__tab-bar a")[0].click();
             break;
