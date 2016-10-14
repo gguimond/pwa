@@ -1,4 +1,5 @@
 require('../manifest.json');
+require('../json/data.json');
 require('../css/main.css');
 import React from 'react';
 import { render } from 'react-dom';

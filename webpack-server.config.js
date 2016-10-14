@@ -22,7 +22,8 @@ module.exports = {
             {test: /sw-toolbox.js$/, loader: "file-loader?name=js/[name].[ext]"},
             {test: /sw.js$/, loader: "file-loader?name=[name].[ext]"},
             {test: /\.js$/, exclude: /node_modules/, loader: 'babel', query: { presets: [ 'es2015', 'react' ] }},
-            {test: /manifest.json$/, loader: "file-loader?name=[name].[ext]"}
+            {test: /manifest.json$/, loader: "file-loader?name=[name].[ext]"},
+            {test: /data.json$/, loader: "file-loader?name=json/[name].[ext]"}
         ]
     },
     plugins: [
