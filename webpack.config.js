@@ -1,6 +1,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+var path = require('path');;
 
 module.exports = {
     cache:true,
@@ -13,7 +14,19 @@ module.exports = {
         filename: 'js/[name].js',
         publicPath: '/'
     },
+    resolve: {
+        alias: {
+                'react': path.resolve(__dirname, './node_modules/react/dist/react.min.js'),
+                'react-dom': path.resolve(__dirname, './node_modules/react-dom/dist/react-dom.min.js'),
+                'react-router': path.resolve(__dirname, './node_modules/react-router/umd/ReactRouter.min.js')
+            }
+        },
     module: {
+        noParse: [
+            path.resolve(__dirname, './node_modules/react/dist/react.min.js'),
+            path.resolve(__dirname, './node_modules/react-dom/dist/react-dom.min.js'),
+            path.resolve(__dirname, './node_modules/react-router/umd/ReactRouter.min.js')
+        ],
         loaders: [
             {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
             {test: /\.(jpg|png|svg|ico|gif).*$/, loader: "file-loader?name=img/[name].[ext]"},
