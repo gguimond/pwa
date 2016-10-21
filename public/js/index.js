@@ -13,6 +13,13 @@ import { Router, Route, Link, hashHistory } from 'react-router';
 
 navigator.serviceWorker.register('../sw.js');
 
+if ('serviceWorker' in navigator) { 
+    navigator.serviceWorker.register('sw.js')
+    .then(function(reg) { reg.pushManager.subscribe({userVisibleOnly: true})
+    .then(function(sub) { console.log('endpoint:', sub.endpoint); }); })
+    .catch(function(error) { console.log('Service Worker error', error); }); 
+}
+
 const store = createStore(reducer, applyMiddleware(thunk));
 
 window.addEventListener('beforeinstallprompt', function(e) {
