@@ -16,8 +16,10 @@ navigator.serviceWorker.register('../sw.js');
 
 if ('serviceWorker' in navigator) { 
     navigator.serviceWorker.register('sw.js')
-    .then(function(reg) { reg.pushManager.subscribe({userVisibleOnly: true})
-    .then(function(sub) { console.log('endpoint:', sub.endpoint); }); })
+    .then(function(reg) { 
+        reg.pushManager.subscribe({userVisibleOnly: true})
+        .then(function(sub) { console.log('endpoint:', sub.endpoint); document.getElementById('endpoint-container').innerHTML = sub.endpoint;}); 
+    })
     .catch(function(error) { console.log('Service Worker error', error); }); 
 }
 
