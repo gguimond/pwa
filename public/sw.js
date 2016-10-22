@@ -21,7 +21,8 @@ self.addEventListener('notificationclick', function(event) {
   console.log('Notification click: tag', event.notification.tag);
 
   event.notification.close();
-  var url = 'http://127.0.0.1:8080/';
+  //var url = 'https://127.0.0.1:8080/';
+    var url = 'https://gguimond.github.io';
   event.waitUntil(
     clients.matchAll({
       type: 'window'
