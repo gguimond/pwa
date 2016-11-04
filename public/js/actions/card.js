@@ -20,6 +20,8 @@ export function updateCardFromServer(card) {
     }, function (err, resp, body) {
         if(!err){
             dispatch(updateCard(body))
+        }else{
+            console.log(err);
         }
     })
   };
