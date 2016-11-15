@@ -39,3 +39,5 @@ jspm_packages
 dist
 
 public/buildTest
+
+src/build
