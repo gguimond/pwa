@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "babel --presets es2015,react public --ignore public/buildTest --out-dir public/buildTest/ && jest",
-    "start": "webpack-dev-server --config webpack-server.config.js --content-base public",
-    "build": "webpack",
+    "startFE": "webpack-dev-server --config webpack-server.config.js --content-base public",
+    "startBE": "node src/build/app.js",
+    "buildFE": "webpack",
+    "buildBE": "babel --presets es2015,react src --ignore src/build --out-dir src/build/",
     "buildTest": "babel --presets es2015,react public --ignore public/buildTest --out-dir public/buildTest/"
   },
   "jest": {
@@ -26,6 +28,7 @@
   },
   "homepage": "https://github.com/gguimond/pwa#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "material-design-lite": "^1.2.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
